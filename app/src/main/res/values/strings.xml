@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">appka-cvika-1</string>
+
+    <string name="form_screen_title">Vyplň form</string>
 </resources>
