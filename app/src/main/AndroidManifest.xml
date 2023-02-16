@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.form.FormActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Appkacvika1" />
     </application>
 
 </manifest>
