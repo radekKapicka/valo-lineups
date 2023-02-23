@@ -19,7 +19,7 @@ fun RadioText(label: String, genderSelection: MutableState<String>){
     ) {
         RadioButton(modifier = Modifier.padding(5.dp),
             selected = genderSelection.value == label, onClick = {
-
+                genderSelection.value = label
             })
         Text(text = label)
     }
