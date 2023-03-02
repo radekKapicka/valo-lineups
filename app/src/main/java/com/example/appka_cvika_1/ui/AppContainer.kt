@@ -25,7 +25,11 @@ fun AppContainer(
         composable(
             route = DestinationRocketLaunches
         ){
-            RocketLaunchesScreen()
+            RocketLaunchesScreen(
+                onNavigateDetail = {rocketId ->
+                    controller.navigateRocketDetailScreen(rocketId)
+                }
+            )
         }
 
         composable(
