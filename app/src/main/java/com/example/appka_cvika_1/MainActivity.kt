@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.example.appka_cvika_1.ui.AppContainer
 import com.example.appka_cvika_1.ui.theme.Appkacvika1Theme
 
@@ -14,7 +15,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Appkacvika1Theme {
-                AppContainer()
+                AppContainer(
+                    controller = rememberNavController()
+                )
             }
         }
     }

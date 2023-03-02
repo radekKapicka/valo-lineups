@@ -20,7 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.form.FormActivity"
+        <activity android:name="com.example.appka_cvika_1.ui.basic.form.FormActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Appkacvika1" />
+
+        <activity android:name="com.example.appka_cvika_1.ui.basic.lazyList.LazyListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Appkacvika1" />
+
+        <activity android:name="com.example.appka_cvika_1.ui.basic.dialog.DialogActivity"
             android:exported="true"
             android:theme="@style/Theme.Appkacvika1" />
     </application>

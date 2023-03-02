@@ -1,4 +1,4 @@
-package com.example.appka_cvika_1.ui.form
+package com.example.appka_cvika_1.ui.basic.form
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
