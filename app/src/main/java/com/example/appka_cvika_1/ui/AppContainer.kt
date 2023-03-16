@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.appka_cvika_1.ui.async.launches.RocketLaunchesScreen
 import com.example.appka_cvika_1.ui.async.rocketDetail.RocketDetailScreen
+import com.example.appka_cvika_1.ui.database.DatabaseScreen
 
 @Composable
 fun AppContainer(
@@ -38,6 +39,12 @@ fun AppContainer(
         ){ backStackEntry ->
             RocketDetailScreen(backStackEntry.arguments?.getString(ArgRocketId))
         }
+
+        composable(
+            route = DestinationDatabaseScreen,
+        ){ backStackEntry ->
+            DatabaseScreen()
+        }
     }
 }
 
@@ -46,11 +53,19 @@ fun NavHostController.navigateRocketLaunchesScreen(){
 }
 
 fun NavHostController.navigateRocketDetailScreen(rocketId: String){
-    this.navigate(DestinationRocketDetail.replace(ArgRocketId, rocketId))
+    this.navigate(DestinationRocketDetail.replaceArg(ArgRocketId, rocketId))
 }
+
+fun NavHostController.navigateDatabaseScreen(){
+    navigate(DestinationDatabaseScreen)
+}
+
+private fun String.replaceArg(argName:String, newString: String) =
+    replace("{$ArgRocketId}", newString)
 
 private const val ArgRocketId = "argRocketId"
 
 private const val DestinationHome = "home"
 private const val DestinationRocketLaunches = "rocket-launches"
 private const val DestinationRocketDetail = "rocket/{$ArgRocketId}"
+private const val DestinationDatabaseScreen = "database"

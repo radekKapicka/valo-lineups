@@ -17,7 +17,7 @@ class RocketLaunchesViewModel(
         fetchSuccessRocketLaunches()
     }
 
-    private fun fetchSuccessRocketLaunches() = launch(
+    fun fetchSuccessRocketLaunches() = launch(
         block = {
             spaceXRepository.fetchAllSuccessfulLaunches().also {
                 _successRocketLaunches.emit(it)

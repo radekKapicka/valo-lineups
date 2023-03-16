@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
@@ -31,7 +32,12 @@ fun RocketLaunchesScreen(
             CircularProgressIndicator()
         }
         is State.Failure -> {
-            Text(text = "Chyba! - ${result.throwable.localizedMessage}")
+            Column() {
+                Text(text = "Chyba! - ${result.throwable.localizedMessage}")
+                Button(onClick = { viewModel.fetchSuccessRocketLaunches() }) {
+                    Text("Zkusit znovu")
+                }
+            }
         }
         is State.Success -> {
             RocketLaunchesView(launches, onNavigateDetail)
@@ -53,7 +59,7 @@ fun RocketLaunchesView(
                     .padding(5.dp)
                     .clickable {
                         //akce po kliku
-                        onNavigateDetail.invoke("") //TODO dodat rocketID
+                        onNavigateDetail.invoke(rocketLaunch.rocket.id) //TODO dodat rocketID
                     }
             ){
                 Card(

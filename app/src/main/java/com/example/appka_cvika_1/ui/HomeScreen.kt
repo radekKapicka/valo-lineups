@@ -73,5 +73,14 @@ fun HomeScreen(
             Icon(Icons.Default.KeyboardArrowUp, contentDescription = "")
             Text(text = "Async operations")
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(onClick = {
+            parentController.navigateDatabaseScreen()
+        }) {
+            Icon(Icons.Default.KeyboardArrowUp, contentDescription = "")
+            Text(text = "DB")
+        }
     }
 }
