@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "441322953666",
+    "firebase_url": "https://valo-lineups-2-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "valo-lineups-2",
+    "storage_bucket": "valo-lineups-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441322953666:android:74dbd4c5495844a875145b",
+        "android_client_info": {
+          "package_name": "com.example.appka_cvika_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441322953666-m32gm8vm94ovgnjibqb0t74gpfqsc2p2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appka_cvika_1",
+            "certificate_hash": "c7b288c3ad059edfe1a75544457a8772f3044b01"
+          }
+        },
+        {
+          "client_id": "441322953666-advribrmmkgsnv10u3s0ff40us4dt3ji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa_XEmL1MueJZDSLlLd891lmZVvGDmdpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441322953666-advribrmmkgsnv10u3s0ff40us4dt3ji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441322953666:android:09cce0e8a8e78d7b75145b",
+        "android_client_info": {
+          "package_name": "com.example.valo_lineups"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441322953666-e6l5ca63l2f5jjrqod372gcvluh5pu10.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.valo_lineups",
+            "certificate_hash": "c7b288c3ad059edfe1a75544457a8772f3044b01"
+          }
+        },
+        {
+          "client_id": "441322953666-advribrmmkgsnv10u3s0ff40us4dt3ji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa_XEmL1MueJZDSLlLd891lmZVvGDmdpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441322953666-advribrmmkgsnv10u3s0ff40us4dt3ji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
