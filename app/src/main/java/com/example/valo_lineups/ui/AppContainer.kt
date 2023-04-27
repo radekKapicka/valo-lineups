@@ -6,13 +6,16 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.valo_lineups.data.DataViewModel
+import com.example.valo_lineups.ui.async.agents.AgentMapScreen
 import com.example.valo_lineups.ui.async.lineups.LineupsScreen
 import com.example.valo_lineups.ui.basic.bottomNavBar.BottomNavBarScreen
 
 
 @Composable
 fun AppContainer(
-    controller: NavHostController
+    controller: NavHostController,
+viewModel: DataViewModel
 ) {
     //HomeScreen()
 
@@ -20,38 +23,27 @@ fun AppContainer(
         composable(
             route = DestinationHome
         ){
-            BottomNavBarScreen(controller)
+            BottomNavBarScreen()
         }
 
-        composable(
-            route = DestinationRocketLaunches
-        ){
-            /*RocketLaunchesScreen(
-                onNavigateDetail = {rocketId ->
-                    controller.navigateRocketDetailScreen(rocketId)
-                }
-            )*/
-        }
 
         composable(
-            route = DestinationRocketDetail,
-            arguments = listOf(navArgument(ArgRocketId) { type = NavType.StringType })
+            route = DestinationAgentMap,
+            arguments = listOf(navArgument(ArgMapId) { type = NavType.StringType })
         ){ backStackEntry ->
-            //RocketDetailScreen(backStackEntry.arguments?.getString(ArgRocketId))
+            backStackEntry.arguments?.getString(ArgMapId)?.let { AgentMapScreen(it) }
+        }
+
+        composable(
+            route = DestinationLineups
+        ) {
+            LineupsScreen()
         }
     }
 }
 
-fun NavHostController.navigateRocketLaunchesScreen(){
-    this.navigate(DestinationRocketLaunches)
-}
-
-fun NavHostController.navigateRocketDetailScreen(rocketId: String){
-    this.navigate(DestinationRocketDetail.replaceArg(ArgRocketId, rocketId))
-}
-
-fun NavHostController.navigateDatabaseScreen(){
-    navigate(DestinationDatabaseScreen)
+fun NavHostController.navigateDestinationAgentMapScreen(mapId: String){
+    this.navigate(DestinationAgentMap.replaceArg(ArgMapId, mapId))
 }
 
 fun NavHostController.navigateLineups(){
@@ -59,12 +51,11 @@ fun NavHostController.navigateLineups(){
 }
 
 private fun String.replaceArg(argName:String, newString: String) =
-    replace("{$ArgRocketId}", newString)
-
-private const val ArgRocketId = "argRocketId"
+    replace("{$ArgMapId}", newString)
 
 private const val DestinationHome = "home"
-private const val DestinationRocketLaunches = "rocket-launches"
-private const val DestinationRocketDetail = "rocket/{$ArgRocketId}"
-private const val DestinationDatabaseScreen = "database"
+
 private const val DestinationLineups = "lineups"
+
+private const val ArgMapId = "argRocketId"
+private const val DestinationAgentMap = "maps/{$ArgMapId}"

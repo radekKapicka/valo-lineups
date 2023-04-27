@@ -10,9 +10,9 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.valo_lineups.data.DataViewModel
-import com.example.valo_lineups.ui.AppContainer
 import com.example.valo_lineups.ui.HomeScreen
 import com.example.valo_lineups.ui.basic.bottomNavBar.BottomNavBarScreen
+import com.example.valo_lineups.ui.basic.bottomNavBar.BottomNavGraph
 import com.example.valo_lineups.ui.theme.Appkacvika1Theme
 
 class MainActivity : ComponentActivity() {
@@ -23,8 +23,8 @@ class MainActivity : ComponentActivity() {
             Appkacvika1Theme {
                 //HomeScreen(viewModel)
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    AppContainer(
-                        controller = rememberNavController(),
+                    BottomNavBarScreen(
+
                     )
                 }
             }

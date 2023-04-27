@@ -8,15 +8,14 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class BottomNavigationScreens(val route: String, val title: String, val icon: ImageVector) {
 
-    object Home : BottomNavigationScreens(
-        route = "home",
-        title = "Home",
-        icon = Icons.Default.Home
-    )
-
     object Lineups : BottomNavigationScreens(
         route = "lineups ",
         title = "Lineups ",
         icon = Icons.Default.ArrowBack
+    )
+    object Home : BottomNavigationScreens(
+        route = "homeLineups",
+        title = "Home Lineups",
+        icon = Icons.Default.Home
     )
 }

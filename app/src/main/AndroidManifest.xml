@@ -37,6 +37,9 @@
         <activity android:name="com.example.valo_lineups.ui.async.lineups.LineupsScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Appkacvika1" />
+        <activity android:name="com.example.valo_lineups.ui.async.agents.AgentsScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Appkacvika1" />
 
     </application>
 
