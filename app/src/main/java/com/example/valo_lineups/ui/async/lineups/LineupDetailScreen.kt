@@ -1,5 +1,6 @@
 package com.example.valo_lineups.ui.async.lineups
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,23 +18,23 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import coil.compose.AsyncImage
 import com.example.valo_lineups.data.database.sealed.DataState
-import com.example.valo_lineups.data.database.viewModels.DataViewModel
 import com.example.valo_lineups.data.database.viewModels.LineupsDataViewModel
 import com.example.valo_lineups.ui.theme.Headers
+import com.example.valo_lineups.ui.theme.darkGrey
 import com.example.valo_lineups.ui.theme.valoRed
-import com.example.valo_lineups.ui.views.cards.AgentCard
 import com.example.valo_lineups.ui.views.cards.LineupCard
 
 @Composable
-fun LineupsScreen(
-    mapId: String,
-    agentId: String,
+fun LineupDetailScreen(
+    lineupId: String,
     dataViewModel: LineupsDataViewModel = viewModel(),
     navHostController: NavHostController
 ){
@@ -41,18 +42,9 @@ fun LineupsScreen(
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
-        Text(text = "List of reveals",
-            color = valoRed,
-            fontFamily = Headers,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth())
-        Spacer(modifier = Modifier.height(20.dp))
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -63,16 +55,54 @@ fun LineupsScreen(
             when(val result = dataViewModel.response.value){
                 is DataState.SuccessLineups ->{
 
-                    LazyColumn() {
-                        items(result.lineups) { lineup ->
-                            if (lineup.agentUuid.equals(agentId) && lineup.mapUuid.equals(mapId)){
+                    for (lineup in result.lineups){
+                        if (lineup.uuid.equals(lineupId)){
 
-                                LineupCard(lineups = lineup, navHostController = navHostController)
+                            Column (
+                                modifier = Modifier
+                                    .padding(15.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                            ){
+                                AsyncImage(model = lineup.image,
+                                    contentDescription = "lineup image",
+                                    modifier = Modifier
+                                        .padding(0.dp, 15.dp, 0.dp, 0.dp)
+                                        .fillMaxWidth()
+
+                                )
+                                Spacer(modifier = Modifier.height(30.dp))
+
+                                Column(
+                                    horizontalAlignment = Alignment.Start,
+                                ) {
+                                    Text(text = lineup.name,
+                                        color = valoRed,
+                                        fontFamily = Headers,
+                                        fontSize = 23.sp,
+                                        modifier = Modifier.fillMaxWidth()
+                                    )
+                                    Spacer(modifier = Modifier.height(10.dp))
+                                    Row(
+                                    ) {
+                                        Text(text = "Site: ",
+                                            fontWeight = FontWeight(600)
+                                        )
+                                        Text(text = lineup.site,)
+                                    }
+                                    Spacer(modifier = Modifier.height(10.dp))
+
+                                        Text(text = "Description: ",
+                                            fontWeight = FontWeight(600)
+                                        )
+                                        Text(text = lineup.description,)
+
+                                }
 
                             }
 
                         }
                     }
+
                 }
                 is DataState.Loading ->{
                     Box(modifier = Modifier.fillMaxHeight(),

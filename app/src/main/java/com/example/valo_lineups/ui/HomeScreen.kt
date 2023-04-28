@@ -12,9 +12,13 @@ import androidx.navigation.NavHostController
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
-import com.example.valo_lineups.data.DataViewModel
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
+import com.example.valo_lineups.data.database.viewModels.DataViewModel
 import com.example.valo_lineups.data.database.sealed.DataState
 import com.example.valo_lineups.ui.basic.bottomNavBar.navigateLineups
+import com.example.valo_lineups.ui.theme.Headers
+import com.example.valo_lineups.ui.theme.valoRed
 import com.example.valo_lineups.ui.views.cards.MapCard
 
 @Composable
@@ -30,7 +34,12 @@ fun HomeScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Text(text = "Choose map")
+        Text(text = "Choose map",
+                color = valoRed,
+            fontFamily = Headers,
+            fontSize = 30.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth())
         Spacer(modifier = Modifier.height(20.dp))
 
         when(val result = dataViewModel.response.value){
@@ -39,14 +48,6 @@ fun HomeScreen(
                     items(result.maps){ mapka ->
                         MapCard(mapka,parentController)
                     }
-                }
-                LazyColumn() {
-                    items(result.agents){ agent ->
-                        Text(text = agent.name)
-                    }
-                }
-                Button(onClick = { parentController.navigateLineups() }) {
-                    
                 }
             }
             is DataState.Loading ->{

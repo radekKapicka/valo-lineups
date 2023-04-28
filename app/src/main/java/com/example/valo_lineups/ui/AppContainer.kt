@@ -6,7 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.valo_lineups.data.DataViewModel
+import com.example.valo_lineups.data.database.viewModels.DataViewModel
 import com.example.valo_lineups.ui.async.agents.AgentMapScreen
 import com.example.valo_lineups.ui.async.lineups.LineupsScreen
 import com.example.valo_lineups.ui.basic.bottomNavBar.BottomNavBarScreen
@@ -31,20 +31,12 @@ viewModel: DataViewModel
             route = DestinationAgentMap,
             arguments = listOf(navArgument(ArgMapId) { type = NavType.StringType })
         ){ backStackEntry ->
-            backStackEntry.arguments?.getString(ArgMapId)?.let { AgentMapScreen(it) }
+            backStackEntry.arguments?.getString(ArgMapId)?.let { AgentMapScreen(it, viewModel ,controller) }
         }
 
-        composable(
-            route = DestinationLineups
-        ) {
-            LineupsScreen()
-        }
     }
 }
 
-fun NavHostController.navigateDestinationAgentMapScreen(mapId: String){
-    this.navigate(DestinationAgentMap.replaceArg(ArgMapId, mapId))
-}
 
 fun NavHostController.navigateLineups(){
     navigate(DestinationLineups)

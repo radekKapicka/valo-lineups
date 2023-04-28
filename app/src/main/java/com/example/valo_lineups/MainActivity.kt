@@ -8,11 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.rememberNavController
-import com.example.valo_lineups.data.DataViewModel
-import com.example.valo_lineups.ui.HomeScreen
+import com.example.valo_lineups.data.database.viewModels.DataViewModel
 import com.example.valo_lineups.ui.basic.bottomNavBar.BottomNavBarScreen
-import com.example.valo_lineups.ui.basic.bottomNavBar.BottomNavGraph
 import com.example.valo_lineups.ui.theme.Appkacvika1Theme
 
 class MainActivity : ComponentActivity() {

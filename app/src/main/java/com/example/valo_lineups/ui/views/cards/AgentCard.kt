@@ -18,21 +18,22 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.example.valo_lineups.data.database.model.Maps
-import com.example.valo_lineups.ui.basic.bottomNavBar.navigateDestinationAgentMapScreen
+import com.example.valo_lineups.ui.basic.bottomNavBar.navigateDestinationAgentMapLineupScreen
+
 import com.example.valo_lineups.ui.theme.Headers
 import com.example.valo_lineups.ui.theme.darkGrey
 import com.example.valo_lineups.ui.theme.valoRed
 
 @Composable
-fun MapCard(
-    maps: Maps,
+fun AgentCard(
+    agents: Maps.Agent,
     navHostController: NavHostController,
 ){
     val context = LocalContext.current
     Card(modifier = Modifier
         .padding(5.dp)
         .clickable(onClick = {
-            navHostController.navigateDestinationAgentMapScreen(maps.uuid)
+            navHostController.navigateDestinationAgentMapLineupScreen(agents.mapUuid,agents.uuid)
         }),
     ) {
         Column (
@@ -41,14 +42,14 @@ fun MapCard(
                 .padding(15.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ){
-            Text(text = maps.title,
+            Text(text = agents.name,
                 color = valoRed,
                 fontFamily = Headers,
                 fontSize = 23.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )
-            AsyncImage(model = maps.image,
+            AsyncImage(model = agents.image,
                 contentDescription = "map",
                 modifier = Modifier
                     .height(100.dp)
@@ -59,4 +60,3 @@ fun MapCard(
     }
 
 }
-

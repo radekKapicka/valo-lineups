@@ -1,7 +1,6 @@
-package com.example.valo_lineups.data
+package com.example.valo_lineups.data.database.viewModels
 
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.valo_lineups.data.database.model.Maps
@@ -9,11 +8,7 @@ import com.example.valo_lineups.data.database.sealed.DataState
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 
 class DataViewModel: ViewModel() {
