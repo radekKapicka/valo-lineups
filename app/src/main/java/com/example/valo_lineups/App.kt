@@ -1,6 +1,7 @@
 package com.example.valo_lineups
 
 import android.app.Application
+import com.example.valo_lineups.di.appModules
 import com.example.valo_lineups.di.dataModule
 
 import com.example.valo_lineups.di.uiModule
@@ -15,8 +16,7 @@ class App: Application() {
 
         startKoin{
             androidContext(applicationContext)
-            modules(listOf(dataModule))
-            modules(listOf(uiModule))
+            modules(appModules)
             FirebaseApp.initializeApp(getApplicationContext());
         }
     }

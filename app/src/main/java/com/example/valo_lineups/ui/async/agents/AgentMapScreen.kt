@@ -27,12 +27,14 @@ import com.example.valo_lineups.data.database.sealed.DataState
 import com.example.valo_lineups.ui.theme.Headers
 import com.example.valo_lineups.ui.theme.valoRed
 import com.example.valo_lineups.ui.views.cards.AgentCard
+import org.koin.androidx.compose.getViewModel
+import org.koin.core.parameter.parametersOf
 
 @Composable
 fun AgentMapScreen(
     mapId: String,
     dataViewModel: DataViewModel = viewModel(),
-    navHostController: NavHostController
+    navHostController: NavHostController,
 ){
 
     Column(

@@ -7,11 +7,8 @@ class ValoRepository(
 ): BaseRepository() {
 
     //kotlin zápis
-    suspend fun fetchAllMaps() = valoAPIService.fetchAllMaps()
+    suspend fun fetchAgentDetail(agentId:String) =
+        valoAPIService.fetchAgentDetail(agentId = agentId)
 
-    //java zápis
-    /*suspend fun fetchRocketDetail(rocketId:String):RocketDetailResponse?{
-        return spaceXAPIService.fetchRocketDetail(rocketId)
-    }.*/
 
 }
