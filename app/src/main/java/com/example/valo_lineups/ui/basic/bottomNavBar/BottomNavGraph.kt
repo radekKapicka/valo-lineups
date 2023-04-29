@@ -1,23 +1,31 @@
 package com.example.valo_lineups.ui.basic.bottomNavBar
 
+import android.content.Intent
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import androidx.navigation.navigation
 import com.example.valo_lineups.data.database.viewModels.DataViewModel
 import com.example.valo_lineups.data.database.viewModels.LineupsDataViewModel
 import com.example.valo_lineups.ui.HomeScreen
 import com.example.valo_lineups.ui.async.agents.AgentMapScreen
 import com.example.valo_lineups.ui.async.lineups.LineupDetailScreen
 import com.example.valo_lineups.ui.async.lineups.LineupsScreen
+import com.example.valo_lineups.ui.auth.RequestScreen
+import com.example.valo_lineups.ui.auth.RequestedByUsersScreen
+import com.example.valo_lineups.ui.auth.UserAuthScreenActivity
+import com.google.firebase.firestore.auth.User
 
 
 @Composable
 fun BottomNavGraph(navController: NavHostController){
     val viewModel: DataViewModel = DataViewModel()
     val lineupsviewModel: LineupsDataViewModel = LineupsDataViewModel()
+    val context = LocalContext.current
     NavHost(navController = navController,
         startDestination = DestinationHome
     ){
@@ -31,9 +39,14 @@ fun BottomNavGraph(navController: NavHostController){
         composable(route = BottomNavigationScreens.Home.route){
             HomeScreen(viewModel, navController)
         }
-        composable(route = BottomNavigationScreens.Lineups.route){
-            //LineupsScreen()
+        composable(route = BottomNavigationScreens.RequestLineups.route){
+            RequestScreen(navController)
         }
+
+        composable(route = BottomNavigationScreens.RequestedByUsers.route){
+            RequestedByUsersScreen(navController)
+        }
+
 
         composable(
             route = DestinationAgentMap,
@@ -89,6 +102,14 @@ fun NavHostController.navigateLineups(){
     navigate(DestinationLineups)
 }
 
+fun NavHostController.navigateRequest(){
+    navigate(DestinationRequest)
+}
+
+fun NavHostController.navigateRequestedByusers(){
+    navigate(DestinationRequestByUsers)
+}
+
 private fun String.replaceArg(argName:String, newString: String) =
     replace("{$ArgMapId}", newString)
 
@@ -108,3 +129,5 @@ private const val ArgLineupId = "argLineupId"
 private const val DestinationAgentMap = "maps/{$ArgMapId}"
 private const val DestinationAgentMapLineup = "maps/{$ArgMapId}/{$ArgAgentId}"
 private const val DestinationLineupDetail = "lineups/{$ArgLineupId}"
+private const val DestinationRequest = "request"
+private const val DestinationRequestByUsers = "requestedByUsers"

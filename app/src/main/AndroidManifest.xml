@@ -23,9 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.valo_lineups.ui.basic.form.FormActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Appkacvika1" />
 
         <activity android:name="com.example.valo_lineups.ui.basic.lazyList.LazyListActivity"
             android:exported="true"
@@ -34,10 +31,7 @@
         <activity android:name="com.example.valo_lineups.ui.basic.dialog.DialogActivity"
             android:exported="true"
             android:theme="@style/Theme.Appkacvika1" />
-        <activity android:name="com.example.valo_lineups.ui.async.lineups.LineupsScreenActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Appkacvika1" />
-        <activity android:name="com.example.valo_lineups.ui.async.agents.AgentsScreenActivity"
+        <activity android:name="com.example.valo_lineups.ui.auth.UserAuthScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Appkacvika1" />
 
