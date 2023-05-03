@@ -5,6 +5,7 @@ data class Lineups (
     var mapUuid: String = "",
     var agentUuid: String = "",
     var image: String = "",
+    var imageFinal: String = "",
     var name: String = "",
     var site: String = "",
     var description: String = "",

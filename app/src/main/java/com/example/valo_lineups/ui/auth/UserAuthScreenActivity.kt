@@ -155,9 +155,7 @@ class UserAuthScreenActivity: ComponentActivity() {
                     Toast.makeText(this, "Sign Out Successful", Toast.LENGTH_SHORT).show()
                     setContent {
                         Appkacvika1Theme {
-                            GoogleSignInButton {
-                                signIn()
-                            }
+                            BottomNavBarScreen()
                         }
                     }
                 }

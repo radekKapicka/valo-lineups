@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -60,41 +62,67 @@ fun LineupDetailScreen(
 
                             Column (
                                 modifier = Modifier
-                                    .padding(15.dp),
+                                    .padding(15.dp)
+                                    .verticalScroll(rememberScrollState())
+                                    .fillMaxSize().padding(bottom = 50.dp),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                             ){
-                                AsyncImage(model = lineup.image,
-                                    contentDescription = "lineup image",
-                                    modifier = Modifier
-                                        .padding(0.dp, 15.dp, 0.dp, 0.dp)
-                                        .fillMaxWidth()
-
-                                )
-                                Spacer(modifier = Modifier.height(30.dp))
-
                                 Column(
                                     horizontalAlignment = Alignment.Start,
                                 ) {
                                     Text(text = lineup.name,
                                         color = valoRed,
                                         fontFamily = Headers,
-                                        fontSize = 23.sp,
+                                        fontSize = 30.sp,
                                         modifier = Modifier.fillMaxWidth()
                                     )
                                     Spacer(modifier = Modifier.height(10.dp))
+                                    Text(text = "UI setup: ",
+                                        fontWeight = FontWeight(600),
+                                        fontSize = 20.sp,
+                                        color = valoRed,
+                                    )
+                                    AsyncImage(model = lineup.image,
+                                        contentDescription = "lineup image",
+                                        modifier = Modifier
+                                            .padding(0.dp, 15.dp, 0.dp, 0.dp)
+                                            .fillMaxWidth()
+
+                                    )
+                                    Spacer(modifier = Modifier.height(30.dp))
                                     Row(
                                     ) {
                                         Text(text = "Site: ",
-                                            fontWeight = FontWeight(600)
+                                            fontWeight = FontWeight(600),
+                                            fontSize = 20.sp,
+                                            color = valoRed,
                                         )
-                                        Text(text = lineup.site,)
+                                        Text(text = lineup.site,
+                                            fontSize = 20.sp,)
                                     }
                                     Spacer(modifier = Modifier.height(10.dp))
 
                                         Text(text = "Description: ",
-                                            fontWeight = FontWeight(600)
+                                            fontWeight = FontWeight(600),
+                                            fontSize = 20.sp,
+                                            color = valoRed,
                                         )
-                                        Text(text = lineup.description,)
+                                        Text(text = lineup.description,
+                                            fontSize = 20.sp,)
+
+                                    Spacer(modifier = Modifier.height(10.dp))
+                                    Text(text = "Revealed result: ",
+                                        fontWeight = FontWeight(600),
+                                        fontSize = 20.sp,
+                                        color = valoRed,
+                                    )
+                                    AsyncImage(model = lineup.imageFinal,
+                                        contentDescription = "lineup image",
+                                        modifier = Modifier
+                                            .padding(0.dp, 15.dp, 0.dp, 0.dp)
+                                            .fillMaxWidth()
+
+                                    )
 
                                 }
 

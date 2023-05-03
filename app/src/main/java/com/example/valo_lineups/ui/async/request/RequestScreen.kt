@@ -68,12 +68,23 @@ fun RequestScreen(
             }
         } else {
             val user: FirebaseUser = mAuth.currentUser!!
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(text = "Dont want to request lineup?")
+            Text(text = "You can logout here:")
+            Spacer(modifier = Modifier.height(10.dp))
             Button(onClick = {
                 context.startActivity(Intent(context, UserAuthScreenActivity::class.java))
             }) {
                 Text(text = "Logout")
             }
             Spacer(modifier = Modifier.height(30.dp))
+            Text(text = "Send request for new lineup here:",
+                color = valoRed,
+                fontFamily = Headers,
+                fontSize = 23.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
+            )
             FormScreen(navHostController, email = user.email!!)
         }
     }

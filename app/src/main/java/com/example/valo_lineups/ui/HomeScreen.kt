@@ -44,7 +44,7 @@ fun HomeScreen(
 
         when(val result = dataViewModel.response.value){
             is DataState.Success ->{
-                LazyColumn() {
+                LazyColumn(modifier = Modifier.fillMaxSize().padding(bottom = 50.dp)) {
                     items(result.maps){ mapka ->
                         MapCard(mapka,parentController)
                     }

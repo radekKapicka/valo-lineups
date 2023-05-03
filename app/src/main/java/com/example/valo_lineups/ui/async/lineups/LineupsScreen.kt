@@ -148,7 +148,7 @@ fun LineupsScreen(
             when(val result = dataViewModel.response.value){
                 is DataState.SuccessLineups ->{
 
-                    LazyColumn() {
+                    LazyColumn(modifier = Modifier.fillMaxSize().padding(bottom = 50.dp)) {
                         items(result.lineups) { lineup ->
 
                             if (lineup.agentUuid.equals(agentId) && lineup.mapUuid.equals(mapId)){

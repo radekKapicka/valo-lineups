@@ -33,7 +33,6 @@ import com.example.valo_lineups.R
 
 import com.example.valo_lineups.data.databaseFirestore.model.Requests
 import com.example.valo_lineups.ui.basic.bottomNavBar.navigateRequestedByusers
-import com.example.valo_lineups.ui.views.RadioText
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -93,7 +92,7 @@ fun FormScreen(
                 .addOnCompleteListener{
                     if(it.isSuccessful) {
                         navHostController.navigateRequestedByusers()
-                        Toast.makeText(context,"Saved",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context,"Request added",Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(context,"Error: ${it.exception?.message}",Toast.LENGTH_SHORT).show()
                     }
