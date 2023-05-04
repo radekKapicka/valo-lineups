@@ -195,7 +195,7 @@ class UserAuthScreenActivity: ComponentActivity() {
                             .size(32.dp)
                             .padding(0.dp)
                             .align(Alignment.CenterVertically),
-                        painter = painterResource(id = R.drawable.fracture),
+                        painter = painterResource(id = R.drawable.google_logo),
                         contentDescription = "google_logo"
                     )
                     Text(

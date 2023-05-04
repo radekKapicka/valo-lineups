@@ -9,9 +9,13 @@ object RequestService {
     private val db = FirebaseFirestore.getInstance()
     fun getRequests(request: SnapshotStateList<Requests>) {
         db.collection("Requests").get().addOnSuccessListener {
+
             request.updateList(it.toObjects(Requests::class.java))
+
         }.addOnFailureListener {
+
             request.updateList(listOf())
+
         }
     }
 }
